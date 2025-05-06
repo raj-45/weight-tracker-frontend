@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  input, button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+  
+  #preview {
+    margin-top: 2rem;
+  }
+  
+  button {
+    margin: 0.5rem;
+  }
+  
