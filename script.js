@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://your-backend.onrender.com"; // <- change this
+const BACKEND_URL = "https://weight-tracker-backend-lqmc.onrender.com/"; // <- change this
 
 let weightHistory = [];
 
@@ -19,7 +19,7 @@ uploadBtn.onclick = async () => {
 
   const res = await fetch(`${BACKEND_URL}/upload`, {
     method: "POST",
-    body: formData
+    body: formData,
   });
 
   const data = await res.json();
@@ -66,24 +66,26 @@ const chart = new Chart(ctx, {
   type: "line",
   data: {
     labels: [],
-    datasets: [{
-      label: "Weight (kg)",
-      data: [],
-      borderColor: "#007bff",
-      fill: false,
-      tension: 0.2
-    }]
+    datasets: [
+      {
+        label: "Weight (kg)",
+        data: [],
+        borderColor: "#007bff",
+        fill: false,
+        tension: 0.2,
+      },
+    ],
   },
   options: {
     scales: {
-      x: { title: { display: true, text: "Date" }},
-      y: { title: { display: true, text: "Weight (kg)" }}
-    }
-  }
+      x: { title: { display: true, text: "Date" } },
+      y: { title: { display: true, text: "Weight (kg)" } },
+    },
+  },
 });
 
 function updateChart() {
-  chart.data.labels = weightHistory.map(e => e.date);
-  chart.data.datasets[0].data = weightHistory.map(e => e.weight);
+  chart.data.labels = weightHistory.map((e) => e.date);
+  chart.data.datasets[0].data = weightHistory.map((e) => e.weight);
   chart.update();
 }
